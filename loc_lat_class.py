@@ -54,7 +54,7 @@ class address_loc_lat():
                         &
                         (abs(merged_df['lat_df1'] - merged_df['lat_df2']) < 0.06)].drop_duplicates()
         
-        merged_df2['distance'] = merged_df2.apply(lambda row: self.dist_cal((row['y'],row['x']),(row['lat'],row['lon'])), axis=1)
+        merged_df2['distance'] = merged_df2.apply(lambda row: self.dist_cal((row['lon_df1'],row['lat_df1']),(row['lon_df2'],row['lat_df2'])), axis=1)
         
         return merged_df
     # haversine 함수를 사용하여 두 지점 사이의 거리를 계산합니다.
